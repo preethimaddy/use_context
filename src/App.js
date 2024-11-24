@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import './App.css';
-
+import Dashboard from './components/Dashboard';
+import Podcasts from './components/Podcasts';
+import Recommendations from './components/Recommendations';
+import { UserContext } from './components/context/UserContext';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+    <h1 className='text-3xl text-center py-6 my-2'>Use-context Basics</h1>
+    <Router>
+      <UserContext.Provider value="Preethi">
+      <Routes>
+        <Route path="/dashboard"  element={<Dashboard />}/>
+        <Route path="/podcasts"  element={<Podcasts />}/>
+        <Route path="/recommendations"  element={<Recommendations />}/>
+      </Routes>
+      </UserContext.Provider>
+    
+    </Router>
+    
+    
+    </>
+
   );
 }
 
