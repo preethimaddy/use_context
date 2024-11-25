@@ -5,13 +5,16 @@ import Podcasts from './components/Podcasts';
 import Recommendations from './components/Recommendations';
 import { UserContext } from './context/UserContext';
 import Home from './components/Home';
+import {useState} from "react"
 import './index.css';
 function App() {
+
+  const [user, setUser] = useState("Preethi")
   return (
    <>
     <h1 className='text-3xl text-center py-6 my-2'>Use-context Basics</h1>
     <Router>
-      <UserContext.Provider value="Preethi">
+      <UserContext.Provider value={[user,setUser]}>
       <Routes>
       <Route path="/"  element={<Home />}/>
         <Route path="/dashboard"  element={<Dashboard />}/>
